@@ -23,7 +23,7 @@ const generarRespuesta = async ({ texto, tipo }) => {
     }
 
     // Unir en un solo prompt el general, el específico y el texto del usuario
-    const promptCompleto = `${prompt_general}\n${promptEspecifico}\nUsuario: ${texto}\nIA:`
+    const promptCompleto = `${prompt_general}\n${promptEspecifico}`
 
     try {
 
@@ -38,7 +38,8 @@ const generarRespuesta = async ({ texto, tipo }) => {
             data: {
                 model: "mistral-medium-latest",
                 messages: [
-                    { role: "system", content: promptCompleto }
+                    { role: "system", content: promptCompleto },
+                    { role: "user", content: texto }
                 ]
             }
         })
