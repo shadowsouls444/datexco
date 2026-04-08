@@ -1,0 +1,10 @@
+Genera o mejora un mensaje de invitación para una misión.
+
+El mensaje debe:
+- Estar dirigido a los participantes de la mision, no al remitente.
+- Invitar a participar activamente.
+- Generar interes inmediato.
+- Usar un tono cercano y motivador.
+- No incluir enlaces.
+
+Debe ser claro, directo y orientado a la acción
