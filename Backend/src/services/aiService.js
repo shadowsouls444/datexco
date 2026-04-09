@@ -8,15 +8,15 @@ const prompt_general = await readFile('./src/assets/prompts/prompt_general.txt',
 const prompt_invitacion = await readFile('./src/assets/prompts/prompt_invitacion.txt', 'utf-8');
 const prompt_descripcion = await readFile('./src/assets/prompts/prompt_descripcion.txt', 'utf-8');
 
-const generarRespuesta = async ({ texto, tipo }) => {
+const generarRespuesta = async ({ texto = '', tipo }) => {
 
     let promptEspecifico = '';
 
-    if(!["invitacion", "descripcion"].includes(tipo)) {
+    if(!["mensaje_invitacion", "descripcion"].includes(tipo)) {
         throw new Error("Tipo no valido");
     }
 
-    if (tipo === 'invitacion') {
+    if (tipo === 'mensaje_invitacion') {
         promptEspecifico = prompt_invitacion
     } else {
         promptEspecifico = prompt_descripcion

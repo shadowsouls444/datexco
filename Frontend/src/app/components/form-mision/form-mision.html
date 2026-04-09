@@ -1,0 +1,38 @@
+<div class="container py-5" style="max-width: 480px;">
+    <div class="card border">
+        <form [formGroup]="formulario" (ngSubmit)="crearMision()" class="card-body p-4">
+
+            <h5 class="mb-4 fw-medium">Registro de misiones</h5>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary" style="font-size: 14px;">Titulo</label>
+                <input formControlName="titulo" type="text" class="form-control" placeholder="Titulo...">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary">Descripción</label>
+
+                <div class="d-flex gap-2">
+                    <textarea formControlName="descripcion" class="form-control" rows="4" placeholder="Descripción..."></textarea>
+
+                    <button type="button" class="btn btn-outline-primary" (click)="generarRespuestaIA('descripcion')">mejorar descripcion con IA ✨</button>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary">Mensaje de invitación</label>
+
+                <div class="d-flex gap-2">
+                    <textarea formControlName="mensaje_invitacion" class="form-control" rows="4" placeholder="Mensaje..."></textarea>
+
+                    <button type="button" class="btn btn-outline-success" (click)="generarRespuestaIA('mensaje_invitacion')">generar invitacion con IA ✨</button>
+                </div>
+            </div>
+
+            <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Crear mision</button>
+            </div>
+
+        </form>
+    </div>
+</div>

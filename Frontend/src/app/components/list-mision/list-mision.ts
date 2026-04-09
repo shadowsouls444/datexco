@@ -1,9 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Mision } from '../../../data/interface/mision';
 
 @Component({
   selector: 'app-list-mision',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './list-mision.html',
   styleUrl: './list-mision.css',
 })
-export class ListMision {}
+export class ListMision {
+
+  @Input() listaMisiones: Mision[] = [];
+
+}

@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Form, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UsuarioService } from '../../../data/service/usuario-service';
 import { Usuario } from '../../../data/interface/usuario';
 
 @Component({

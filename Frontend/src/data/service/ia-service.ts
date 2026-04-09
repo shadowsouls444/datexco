@@ -9,7 +9,7 @@ import { IARequest, IAResponse } from '../interface/ia';
 export class IaService {
 
   private http = inject(HttpClient);
-  apiUrl = 'http://localhost:3000/ia';
+  apiUrl = 'http://localhost:3000/ai';
 
   generarTexto(data: IARequest): Observable<IAResponse> {
     return this.http.post<IAResponse>(this.apiUrl, data);

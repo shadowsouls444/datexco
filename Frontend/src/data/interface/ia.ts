@@ -1,6 +1,6 @@
 export interface IARequest {
     texto: string;
-    tipo: "invitacion" | "descripcion";
+    tipo: "mensaje_invitacion" | "descripcion";
 }
 
 export interface IAResponse {
