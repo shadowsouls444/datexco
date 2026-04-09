@@ -1,0 +1,33 @@
+<div class="container py-5" style="max-width: 480px;">
+    <div class="card border">
+        <form [formGroup]="formulario" (ngSubmit)="crearUsuario()" class="card-body p-4">
+
+            <h5 class="mb-4 fw-medium">Registro de usuario</h5>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary" style="font-size: 14px;">Nombre completo</label>
+                <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre...">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary" style="font-size: 14px;">Correo electrónico</label>
+                <input formControlName="email" type="email" class="form-control" placeholder="Correo...">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label text-secondary" style="font-size: 14px;">Teléfono</label>
+                <input formControlName="telefono" type="text" class="form-control" placeholder="Numero..." inputmode="numeric">
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label text-secondary" style="font-size: 14px;">Identificación</label>
+                <input formControlName="identificacion" type="text" class="form-control" placeholder="Identificacion..." inputmode="numeric">
+            </div>
+
+            <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+
+        </form>
+    </div>
+</div>

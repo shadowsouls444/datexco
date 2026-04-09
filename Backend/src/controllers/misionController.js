@@ -23,8 +23,21 @@ const createMision = async (req, res) => {
     }
 };
 
+const getMisiones = async (req, res) => {
+    try {
+        
+        const misiones = await misionService.getMisiones();
+        return res.status(200).json(misiones);
+
+    } catch (error) {
+
+        return res.status(500).json({ error: 'Ocurrió un error inesperado' });
+    }
+};
+
 const misionController = {
-    createMision
+    createMision,
+    getMisiones
 };
 
 export default misionController;

@@ -13,7 +13,7 @@ const generarRespuesta = async ({ texto, tipo }) => {
     let promptEspecifico = '';
 
     if(!["invitacion", "descripcion"].includes(tipo)) {
-        throw new Error('Tipo no valido');
+        throw new Error("Tipo no valido");
     }
 
     if (tipo === 'invitacion') {

@@ -1,0 +1,23 @@
+<div class="container py-4">
+  <h4 class="mb-4">Lista de usuarios</h4>
+
+  <div class="row g-3">
+
+    <div *ngFor="let usuario of usuarios" class="col-md-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+
+          <h5 class="card-title mb-2">{{ usuario.nombre }}</h5>
+
+          <p class="mb-1 text-muted">{{ usuario.email }}</p>
+
+          <p class="mb-1">{{ usuario.telefono }}</p>
+
+          <p class="mb-0">{{ usuario.identificacion }}</p>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

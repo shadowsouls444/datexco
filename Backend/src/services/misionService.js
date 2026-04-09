@@ -14,8 +14,14 @@ const crearMision = async (mision) => {
 
 }
 
+const getMisiones = async () => {
+    const misiones = await Mision.findAll()
+    return misiones
+}
+
 const misionService = {
-    crearMision
+    crearMision,
+    getMisiones
 }
 
 export default misionService

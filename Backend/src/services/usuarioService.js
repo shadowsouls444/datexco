@@ -2,7 +2,22 @@ import { Mision } from "../models/Mision.js";
 import { Usuario } from "../models/Usuario.js";
 
 export const crearUsuario = async (usuario) => {
-       await Usuario.create(usuario)
+
+    // Validar que el correo no este registrado
+    const existeEmail = await Usuario.findOne({ where: { email: usuario.email } });
+
+    if (existeEmail) {
+        throw new Error("El correo ya esta registrado")
+    }
+
+    // Validar que la identificacion no este registrada
+    const existeIdentificacion = await Usuario.findOne({ where: { identificacion: usuario.identificacion } });
+
+    if (existeIdentificacion) {
+        throw new Error("La identificacion ya esta registrada")
+    }
+
+    await Usuario.create(usuario)
 }
 
 export const obtenerUsuarios = async () => {

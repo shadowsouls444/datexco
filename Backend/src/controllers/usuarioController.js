@@ -15,6 +15,14 @@ const createUsuario = async (req, res) => {
         return res.status(201).json(usuario);
 
     } catch (error) {
+
+        if (error.message === "La identificacion ya esta registrada") {
+            return res.status(409).json({ error: error.message });
+        }
+
+        if (error.message === "El correo ya esta registrado") {
+            return res.status(409).json({ error: error.message });
+        }
   
         return res.status(500).json({ error: 'Ocurrió un error inesperado' });
     }

@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors';
 import { sequelize } from './db/db.js'
 
 import aiRoutes from './routes/aiRoutes.js'
@@ -11,6 +12,7 @@ import './models/Mision.js'
 import { PORT } from '../config.js'
 
 const app = express()
+app.use(cors());
 app.use(express.json())
 
 // Crear las rutas

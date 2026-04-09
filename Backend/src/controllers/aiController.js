@@ -9,6 +9,11 @@ const generateResponse = async (req, res) => {
         return res.status(200).json({ respuesta });
 
     } catch (error) {
+
+        if(error.message === "Tipo no valido") {
+            return res.status(400).json({ error: 'Tipo no valido. Debe ser "invitacion" o "descripcion"' });
+        }
+
         return res.status(500).json({ error: 'Ocurrió un error inesperado' });
     }
 };
