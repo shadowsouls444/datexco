@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormMision } from '../../components/form-mision/form-mision';
 import { FormUsuario } from '../../components/form-usuario/form-usuario';
 import { ListUsuario } from '../../components/list-usuario/list-usuario';
@@ -16,6 +16,7 @@ import { Mision } from '../../../data/interface/mision';
 })
 export class Home {
 
+  cdr = inject(ChangeDetectorRef);
   usuarioService = inject(UsuarioService);
   misionService = inject(MisionService);
 
@@ -23,6 +24,7 @@ export class Home {
   misiones: Mision[] = [];
 
   ngOnInit() {
+    console.log("HOME INIT");
     this.cargarUsuarios();
     this.cargarMisiones();
   }
@@ -31,7 +33,7 @@ export class Home {
     this.usuarioService.getUsuarios().subscribe({
       next: (data) => {
         this.usuarios = data;
-        console.log('Usuarios cargados:', this.usuarios);
+        this.cdr.detectChanges();
       },
       error: (error) => {
         alert('Error al cargar usuarios');
@@ -44,6 +46,7 @@ export class Home {
     this.misionService.getMisiones().subscribe({
       next: (data) => {
         this.misiones = data;
+        this.cdr.detectChanges();
       },
       error: (error) => {
         alert('Error al cargar misiones');
@@ -56,9 +59,16 @@ export class Home {
     this.usuarioService.createUsuario(usuario).subscribe({
       next: () => {
         alert('Usuario registrado exitosamente');
-        this.cargarUsuarios();
+        this.usuarios.push(usuario);
+        this.cdr.detectChanges();
       },
       error: (error) => {
+
+        if (error.status === 409) {
+          alert(error.error.error);
+          return;
+        }
+
         alert('Error al registrar usuario');
         console.error('Error al registrar usuario:', error);
       }

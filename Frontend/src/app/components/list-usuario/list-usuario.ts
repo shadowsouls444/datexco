@@ -5,12 +5,12 @@ import { Usuario } from '../../../data/interface/usuario';
 @Component({
   selector: 'app-list-usuario',
   imports: [CommonModule],
-  standalone: true,
   templateUrl: './list-usuario.html',
+  standalone: true,
   styleUrl: './list-usuario.css',
 })
 export class ListUsuario {
 
-  @Input() usuarios: Usuario[] = [];
+  @Input() ListaUsuarios: Usuario[] = [];
 
 }

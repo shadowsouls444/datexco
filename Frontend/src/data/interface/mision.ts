@@ -5,6 +5,6 @@ export interface Mision {
     descripcion: string,
     mensaje_invitacion: string,
     fecha?: Date,
-    usuario_id: number,
+    usuario_id?: number,
 
 }
