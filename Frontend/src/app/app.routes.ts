@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { Home } from './page/home/home';
+import { GestionUsuario } from './page/gestion-usuario/gestion-usuario';
 
 export const routes: Routes = [
-    { path: '', component: Home }
+    { path: 'gestion-usuario', component: GestionUsuario },
+    { path: '', redirectTo: '/gestion-usuario', pathMatch: 'full' },
 ];

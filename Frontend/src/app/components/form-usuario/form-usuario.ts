@@ -37,8 +37,9 @@ export class FormUsuario {
     if (this.formulario.valid) {
 
       const nuevoUsuario: Usuario = this.formulario.value;
-      
+
       this.usuario.emit(nuevoUsuario);
+      this.formulario.reset();
 
     } else {
       alert("Datos incorrectos")
