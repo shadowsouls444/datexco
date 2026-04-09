@@ -1,21 +1,36 @@
 <div class="container py-4">
   <h4 class="mb-4">Lista de misiones</h4>
 
-  <div class="row g-3">
-
-    <div *ngFor="let mision of listaMisiones" class="col-md-4">
-      <div class="card shadow-sm h-100">
-        <div class="card-body">
-
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let mision of listaMisiones; trackBy: trackById" class="col d-flex">
+      <div class="card shadow-sm h-100 d-flex flex-column flex-fill">
+        <div class="card-body flex-grow-1">
           <h5 class="card-title mb-2">Titulo: {{ mision.titulo }}</h5>
 
           <p class="mb-1 text-muted">Descripcion: {{ mision.descripcion }}</p>
 
           <p class="mb-1">Mensaje de invitacion: {{ mision.mensaje_invitacion }}</p>
 
+          <ng-container *ngIf="!mision.usuario_id; else usuarioAsignado">
+
+            <select class="form-select mt-3" [(ngModel)]="usuario_id">
+              <option *ngFor="let usuario of usuarios" [value]="usuario.id">
+                {{ usuario.nombre }} - {{ usuario.email }}
+              </option>
+            </select>
+
+            <button class="btn btn-primary mt-2 w-100" (click)="asignarMision(mision, usuario_id)">
+              Asignar mision
+            </button>
+
+          </ng-container>
+
+          <ng-template #usuarioAsignado>
+            <p class="mt-3"><strong>Mision ya asignado</strong></p>
+          </ng-template>
+
         </div>
       </div>
     </div>
-
   </div>
 </div>

@@ -1,10 +1,13 @@
+import { Usuario } from "./usuario";
+
 export interface Mision {
 
-    id?: number,
+    id: number,
     titulo: string,
     descripcion: string,
     mensaje_invitacion: string,
-    fecha?: Date,
-    usuario_id?: number,
+    fecha: Date,
+    usuario_id: number,
+    Usuario: Usuario
 
 }

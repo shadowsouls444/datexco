@@ -13,4 +13,8 @@ export class ListUsuario {
 
   @Input() ListaUsuarios: Usuario[] = [];
 
+  trackById(index: number, usuario: Usuario) {
+      return usuario.id;
+    }
+
 }

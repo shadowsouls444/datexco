@@ -22,30 +22,31 @@ export class GestionMision {
   }
 
   cargarMisiones() {
-      this.misionService.getMisiones().subscribe({
-        next: (data) => {
-          this.misiones = data;
-          this.cdr.detectChanges();
-        },
-        error: (error) => {
-          alert('Error al cargar misiones');
-          console.error('Error al cargar misiones:', error);
-        }
-      })
-    }
-  
-    registrarMision(mision: Mision) {
-      this.misionService.createMision(mision).subscribe({
-        next: () => {
-          alert('Mision registrada exitosamente');
-          this.misiones.push(mision);
-          this.cdr.detectChanges();
-        },
-        error: (error) => {
-          alert('Error al registrar mision');
-          console.error('Error al registrar mision:', error);
-        }
-      })
-    }
+    this.misionService.getMisiones().subscribe({
+      next: (data) => {
+        this.misiones = data;
+        this.cdr.detectChanges();
+        console.log(data);
+      },
+      error: (error) => {
+        alert('Error al cargar misiones');
+        console.error('Error al cargar misiones:', error);
+      }
+    })
+  }
+
+  registrarMision(mision: Mision) {
+    this.misionService.createMision(mision).subscribe({
+      next: () => {
+        alert('Mision registrada exitosamente');
+        this.misiones.push(mision);
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        alert('Error al registrar mision');
+        console.error('Error al registrar mision:', error);
+      }
+    })
+  }
 
 }

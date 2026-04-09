@@ -21,12 +21,12 @@ export const crearUsuario = async (usuario) => {
 }
 
 export const obtenerUsuarios = async () => {
-    const usuarios = await Usuario.findAll({ include: [{ model: Mision, as: "Misiones" }] })
+    const usuarios = await Usuario.findAll()
     return usuarios
 }
 
 export const obtenerUsuarioPorId = async (id) => {
-    const usuario = await Usuario.findByPk(id, { include: [{ model: Mision, as: "Misiones" }] })
+    const usuario = await Usuario.findByPk(id)
     return usuario
 }
 

@@ -1,4 +1,5 @@
 import { Mision } from "../models/Mision.js";
+import { Usuario } from "../models/Usuario.js";
 import usuarioService from "../services/usuarioService.js";
 
 const crearMision = async (mision) => {
@@ -7,7 +8,7 @@ const crearMision = async (mision) => {
 }
 
 const getMisiones = async () => {
-    const misiones = await Mision.findAll()
+    const misiones = await Mision.findAll({ include: [{ model: Usuario, as: "Usuario" }] })
     return misiones
 }
 

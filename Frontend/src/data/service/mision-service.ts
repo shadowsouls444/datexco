@@ -19,4 +19,8 @@ export class MisionService {
     return this.http.post(this.apiUrl, mision);
   }
 
+  asignarMision(misionId: number, usuarioId: number): Observable<Mision> {
+    return this.http.patch<Mision>(`${this.apiUrl}/${misionId}`, { usuario_id: usuarioId });
+  }
+
 }
