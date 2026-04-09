@@ -39,7 +39,7 @@ export class GestionMision {
     this.misionService.createMision(mision).subscribe({
       next: () => {
         alert('Mision registrada exitosamente');
-        this.misiones.push(mision);
+        this.cargarMisiones();
         this.cdr.detectChanges();
       },
       error: (error) => {

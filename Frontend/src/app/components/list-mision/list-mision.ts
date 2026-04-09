@@ -47,6 +47,9 @@ export class ListMision {
 
   asignarMision(mision: Mision, usuarioId: number) {
 
+    console.log("Mision:", mision);
+    console.log("ID:", mision.id);
+
     if (!usuarioId) {
       alert('Por favor, selecciona un usuario para asignar la misión.');
       return;
@@ -55,9 +58,9 @@ export class ListMision {
     this.misionService.asignarMision(mision.id, usuarioId).subscribe({
 
       next: (data) => {
-        
+
         const index = this.listaMisiones.findIndex(m => m.id === data.id);
-        
+
         if (index !== -1) {
           this.listaMisiones[index] = data;
         }
