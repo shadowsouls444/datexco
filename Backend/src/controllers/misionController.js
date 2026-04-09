@@ -30,9 +30,36 @@ const getMisiones = async (req, res) => {
     }
 };
 
+const asignateMision = async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+        const { usuario_id } = req.body;
+
+        const mision = await misionService.asignarMision(id, usuario_id);
+
+        return res.status(200).json(mision);
+
+    } catch (error) {
+
+        if (error.message === "Mision no encontrada") {
+            return res.status(404).json({ error: error.message });
+        }
+
+        if (error.message === "Usuario no encontrado") {
+            return res.status(404).json({ error: error.message });
+        }
+
+        return res.status(500).json({ error: 'Ocurrió un error inesperado' });
+    }
+
+}
+
 const misionController = {
     createMision,
-    getMisiones
+    getMisiones,
+    asignateMision
 };
 
 export default misionController;

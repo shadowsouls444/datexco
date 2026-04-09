@@ -11,9 +11,31 @@ const getMisiones = async () => {
     return misiones
 }
 
+const asignarMision = async (id, usuario_id) => {
+
+    const mision = await Mision.findByPk(id)
+
+    if(!mision) {
+        throw new Error("Mision no encontrada")
+    }
+
+    const usuario = await usuarioService.obtenerUsuarioPorId(usuario_id)
+
+    if(!usuario) {
+        throw new Error("Usuario no encontrado")
+    }
+
+    mision.usuario_id = usuario_id
+    await mision.save()
+
+    return mision;
+
+}
+
 const misionService = {
     crearMision,
-    getMisiones
+    getMisiones,
+    asignarMision
 }
 
 export default misionService

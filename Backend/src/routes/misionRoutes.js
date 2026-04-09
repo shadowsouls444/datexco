@@ -5,5 +5,6 @@ const router = Router();
 
 router.get("/misiones", misionController.getMisiones);
 router.post("/misiones", misionController.createMision);
+router.patch("/misiones/:id", misionController.asignateMision);
 
 export default router;
