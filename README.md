@@ -29,4 +29,4 @@
    ng serve
 4. La consola mostrara un link local, normalmente http://localhost:4200/. Abrelo en tu navegador.
 
-Listo! Ahora deberías tener el backend corriendo en el puerto 3000 y el frontend en 4200.
+Ahora deberías tener el backend corriendo en el puerto 3000 y el frontend en 4200.
